@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<h1>Seller Panel</h1>
+<a href="/admin/new"><button>+ Add Product</button></a><br><br>
+<table>
+  <tr><th>Name</th><th>Price</th><th>Description</th><th>Actions</th></tr>
+  <% products.forEach(p => { %>
+    <tr>
+      <td><%= p.name %></td><td>Rs. <%= p.price %></td><td><%= p.description %></td>
+      <td>
+        <a href="/admin/products/<%= p._id %>/edit">Edit</a>
+        <form class="inline" action="/admin/products/<%= p._id %>?_method=DELETE" method="POST"><button>Delete</button></form>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+<%- include('partials/footer') %>

@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+<h1><%= product ? 'Edit Product' : 'Add Product' %></h1>
+<form action="<%= product ? '/admin/products/' + product._id + '?_method=PUT' : '/admin/products' %>" method="POST">
+  <input type="text" name="name" placeholder="Name" value="<%= product ? product.name : '' %>" required>
+  <input type="number" name="price" placeholder="Price" value="<%= product ? product.price : '' %>" required>
+  <input type="text" name="image" placeholder="Image URL (optional)" value="<%= product ? product.image : '' %>">
+  <textarea name="description" placeholder="Description"><%= product ? product.description : '' %></textarea>
+  <button>Save</button>
+</form>
+<%- include('partials/footer') %>

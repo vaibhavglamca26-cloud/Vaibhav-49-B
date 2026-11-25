@@ -1,0 +1,7 @@
+{
+  "name": "p09-express-crud",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": { "start": "node app.js" },
+  "dependencies": { "express": "^4.21.0", "ejs": "^3.1.10", "method-override": "^3.0.0" }
+}

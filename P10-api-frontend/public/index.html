@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    form { margin-bottom: 20px; }
+    input { padding: 6px; margin-right: 6px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+    th { background: #333; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>Products</h1>
+  <form id="form">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="number" id="price" placeholder="Price" required>
+    <input type="number" step="0.1" max="5" id="rating" placeholder="Rating (0-5)" required>
+    <button>Add Product</button>
+  </form>
+  <table>
+    <thead><tr><th>ID</th><th>Name</th><th>Price</th><th>Rating</th></tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+
+  <script>
+    // client-side rendering: data is fetched from the API and the table is built in the browser
+    const body = document.getElementById('body');
+
+    async function loadProducts() {
+      const res = await fetch('/api/products');
+      const products = await res.json();
+      body.innerHTML = '';
+      products.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${p.id}</td><td>${p.name}</td><td>Rs. ${p.price}</td><td>${p.rating}</td>`;
+        body.appendChild(tr);
+      });
+    }
+
+    document.getElementById('form').addEventListener('submit', async e => {
+      e.preventDefault();
+      await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          price: document.getElementById('price').value,
+          rating: document.getElementById('rating').value
+        })
+      });
+      e.target.reset();
+      loadProducts();
+    });
+
+    loadProducts();
+  </script>
+</body>
+</html>

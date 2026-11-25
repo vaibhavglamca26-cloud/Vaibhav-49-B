@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<h1>Successful Orders</h1>
+<% if (success) { %><p class="success">Payment successful! Your order has been placed.</p><% } %>
+<% if (orders.length === 0) { %><p>No orders yet.</p><% } %>
+<% orders.forEach(o => { %>
+  <div class="order">
+    <b>Order <%= o._id %></b> - <%= o.status %> (<%= o.paymentId %>)<br>
+    Customer: <%= o.customer %>, <%= o.address %><br>
+    Date: <%= o.createdAt.toLocaleString() %><br>
+    <ul>
+      <% o.items.forEach(i => { %><li><%= i.name %> x <%= i.qty %> = Rs. <%= i.price * i.qty %></li><% }) %>
+    </ul>
+    <b>Total: Rs. <%= o.total %></b>
+  </div>
+<% }) %>
+<%- include('partials/footer') %>

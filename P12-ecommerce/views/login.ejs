@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h1>Seller Login</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form action="/admin/login" method="POST">
+  <input type="password" name="password" placeholder="Admin password" required>
+  <button>Login</button>
+</form>
+<p><small>Default password: admin123 (set in app.js)</small></p>
+<%- include('partials/footer') %>

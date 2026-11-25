@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html><head><title>Edit Product</title>
+<style>body{font-family:Arial;margin:30px}input,textarea{display:block;margin:8px 0;padding:6px;width:280px}</style>
+</head><body>
+<h1>Edit Product</h1>
+<form action="/products/<%= product._id %>?_method=PUT" method="POST">
+  <input type="text" name="name" value="<%= product.name %>" required>
+  <input type="number" name="price" value="<%= product.price %>" required>
+  <textarea name="description"><%= product.description %></textarea>
+  <button>Update</button>
+</form>
+<a href="/products">Back</a>
+</body></html>

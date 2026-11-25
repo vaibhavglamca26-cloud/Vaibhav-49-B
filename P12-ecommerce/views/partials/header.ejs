@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Shop</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">Shop</a>
+  <a href="/cart">Cart (<%= cartCount %>)</a>
+  <a href="/orders">Orders</a>
+  <span class="right">
+    <% if (isAdmin) { %><a href="/admin">Seller Panel</a> <a href="/admin/logout">Logout</a>
+    <% } else { %><a href="/admin/login">Seller Login</a><% } %>
+  </span>
+</nav>
+<main>

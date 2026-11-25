@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; color: #222; background: #f7f7f7; }
+.navbar { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; background: #1f2a44; color: #fff; padding: 12px 30px; }
+.navbar h2 { margin: 0; }
+.navbar a { color: #fff; margin-left: 20px; text-decoration: none; }
+.hero { text-align: center; padding: 90px 20px; background: #2f4a7d; color: #fff; }
+.hero h1 { font-size: 40px; margin: 0 0 10px; }
+section { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill { background: #2f4a7d; color: #fff; padding: 8px 14px; border-radius: 20px; }
+.projects { display: flex; flex-wrap: wrap; gap: 16px; }
+.project { flex: 1 1 250px; background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+form { display: flex; flex-direction: column; gap: 10px; max-width: 420px; }
+input, textarea { padding: 9px; font-size: 14px; }
+button { padding: 10px; background: #2f4a7d; color: #fff; border: none; cursor: pointer; }
+.sent { color: green; }
+footer { text-align: center; padding: 20px; background: #1f2a44; color: #fff; }

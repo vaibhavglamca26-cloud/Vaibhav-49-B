@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html><head><title><%= product.name %></title>
+<style>body{font-family:Arial;margin:30px}</style>
+</head><body>
+<h1><%= product.name %></h1>
+<p><b>Price:</b> Rs. <%= product.price %></p>
+<p><b>Description:</b> <%= product.description %></p>
+<a href="/products/<%= product._id %>/edit">Edit</a> | <a href="/products">Back</a>
+</body></html>

@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<h1>All Products</h1>
+<div class="grid">
+  <% products.forEach(p => { %>
+    <div class="card">
+      <img src="<%= p.image || 'https://picsum.photos/seed/' + p._id + '/300/200' %>" alt="<%= p.name %>">
+      <div>
+        <h3><%= p.name %></h3>
+        <p><%= p.description %></p>
+        <p><b>Rs. <%= p.price %></b></p>
+        <form action="/cart/add/<%= p._id %>" method="POST"><button>Add to Cart</button></form>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

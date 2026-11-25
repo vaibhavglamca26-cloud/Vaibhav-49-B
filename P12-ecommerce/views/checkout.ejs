@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<h1>Checkout</h1>
+<h3>Amount to pay: Rs. <%= total %></h3>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form action="/checkout" method="POST">
+  <input type="text" name="name" placeholder="Full name" required>
+  <textarea name="address" placeholder="Delivery address" required></textarea>
+  <input type="text" name="card" placeholder="Card number (16 digits)" required>
+  <input type="text" name="expiry" placeholder="Expiry MM/YY" required>
+  <input type="password" name="cvv" placeholder="CVV (3 digits)" required>
+  <button>Pay Rs. <%= total %></button>
+</form>
+<p><small>Demo payment: any 16 digit number works. No real money is used.</small></p>
+<%- include('partials/footer') %>

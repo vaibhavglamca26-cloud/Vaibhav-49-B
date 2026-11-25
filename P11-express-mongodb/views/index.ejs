@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><title>Products</title>
+<style>body{font-family:Arial;margin:30px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #aaa;padding:8px}th{background:#333;color:#fff}form{display:inline}</style>
+</head><body>
+<h1>Products</h1>
+<a href="/products/new">+ Add new product</a><br><br>
+<table>
+  <tr><th>Name</th><th>Price</th><th>Description</th><th>Actions</th></tr>
+  <% products.forEach(p => { %>
+  <tr>
+    <td><%= p.name %></td><td>Rs. <%= p.price %></td><td><%= p.description %></td>
+    <td>
+      <a href="/products/<%= p._id %>">View</a> |
+      <a href="/products/<%= p._id %>/edit">Edit</a> |
+      <form action="/products/<%= p._id %>?_method=DELETE" method="POST"><button>Delete</button></form>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+</body></html>
